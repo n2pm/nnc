@@ -13,12 +13,6 @@ fn get_api_key() -> String {
 // what a mess
 #[derive(Deserialize, Debug)]
 struct UserInfo {
-    id: String,
-    username: String,
-    discriminator: String,
-
-    #[serde(rename = "apiKey")]
-    api_key: String,
     balance: u32,
 }
 
@@ -30,8 +24,6 @@ struct TransactionRequest {
 
 #[derive(Deserialize, Debug)]
 struct TransactionInfo {
-    id: String,
-    from: String,
     to: String,
     amount: u32,
 }
@@ -43,7 +35,6 @@ struct RequestError {
 
 #[derive(Deserialize, Debug)]
 struct DailyError {
-    error: String,
     reset: i64,
 }
 
