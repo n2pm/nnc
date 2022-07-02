@@ -37,7 +37,14 @@ fn main() -> Result<(), Box<dyn Error>> {
         Commands::Balance => client.check_balance()?,
         Commands::Send { to, amount } => client.send_money(to, amount)?,
         Commands::Daily => client.claim_daily()?,
-        Commands::Login => open::that("https://discord.com/api/oauth2/authorize?client_id=991697126784520293&redirect_uri=https%3A%2F%2Fnnc.n2.pm%2Foauth&response_type=code&scope=identify")?
+        Commands::Login => {
+            let url = "https://discord.com/api/oauth2/authorize?client_id=991697126784520293&redirect_uri=https%3A%2F%2Fnnc.n2.pm%2Foauth&response_type=code&scope=identify";
+            println!(
+                "Opening in your browser. If it doesn't work, use this URL: {}",
+                url
+            );
+            open::that(url)?;
+        }
     }
 
     Ok(())

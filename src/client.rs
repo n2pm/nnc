@@ -6,7 +6,7 @@ use std::env;
 
 fn get_api_key() -> String {
     env::var("NNC_API_KEY").expect(
-        "couldn't NotNetCoin API key - make sure to set the `NNC_API_KEY` environment variable",
+        "couldn't get NotNetCoin API key - make sure to set the `NNC_API_KEY` environment variable",
     )
 }
 
